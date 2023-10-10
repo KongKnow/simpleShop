@@ -11,6 +11,7 @@ const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const currentUser = useSelector(state => state.user.currentUser)
+    const cart = useSelector(state => state.user.cart)
     const data = useSelector(state => state.products.searchProducts)
     const [searchValue, setSearchValue] = useState('')
     const [values, setValues] = useState({name: 'Guest', avatar: 'https://preview.redd.it/9kvzgd1jqek51.jpg?auto=webp&s=71cd501e9b1d682d303190d7667565aa25685c3c'})
@@ -90,7 +91,7 @@ const Header = () => {
                     <svg className={styles["icon-cart"]}>
                         <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
                     </svg>
-                    <span className={styles.count}>2</span>
+                    <span className={styles.count}>{cart.length}</span>
                 </Link>
             </div>
             </div>

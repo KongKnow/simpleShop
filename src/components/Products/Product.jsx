@@ -14,7 +14,6 @@ const Product = ({title, price, images, description, id}) => {
 
     useEffect(() => {
         setCurrentImage(images[0])
-        console.log('1')
     }, [images])
 
     return (
