@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from '../../styles/Product.module.css'
 import {ROUTES} from '../../utils/routes'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { addItemToCart } from '../../features/user/userSlice'
 import {useDispatch} from 'react-redux'
 
@@ -11,6 +11,11 @@ const Product = ({title, price, images, description, id}) => {
     const dispatch = useDispatch()
     const [currentImage, setCurrentImage] = useState(images[0])
     const [currentSize, setSizeImage] = useState()
+
+    useEffect(() => {
+        setCurrentImage(images[0])
+        console.log('1')
+    }, [images])
 
     return (
         <section className={styles.product}>
